@@ -1,5 +1,5 @@
 function PicSanguosha({number}){
-    const imgurl = `/image/sanguosha/${number.toString().padStart(2,'0')}.jpg`;
+    const imgurl = `/React_learn/image/sanguosha/${number.toString().padStart(2,'0')}.jpg`;
     return(
       <img
         src={imgurl}
