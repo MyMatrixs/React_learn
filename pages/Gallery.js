@@ -1,5 +1,6 @@
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 function PicSanguosha({number}){
-    const imgurl = `/React_learn/image/sanguosha/${number.toString().padStart(2,'0')}.jpg`;
+    const imgurl = `${apiUrl}/image/sanguosha/${number.toString().padStart(2,'0')}.jpg`;
     return(
       <img
         src={imgurl}
