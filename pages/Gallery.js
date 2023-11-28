@@ -1,11 +1,25 @@
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+import React, { useState } from 'react';
+import styles from '../styles/Mystyle.module.css'; // 引入CSS样式文件
+
 function PicSanguosha({number}){
     const imgurl = `${apiUrl}/image/sanguosha/${number.toString().padStart(2,'0')}.jpg`;
+    const [isJumping, setIsJumping] = useState(false);
+
+    const handleClick = () => {
+      setIsJumping(true);
+      // 设置定时器以在动画完成后重置状态
+      setTimeout(() => setIsJumping(false), 300); // 假设动画时长为500毫秒
+    };
+
     return(
-      <img
-        src={imgurl}
-        alt={`Sanguosha ${number}`}
-      ></img>
+        <img
+          className={`${styles.pic} ${isJumping ? styles.jump : ''}`}
+          onClick={handleClick}
+          src={imgurl}
+          alt={`Sanguosha ${number}`}
+        ></img>
+
     )
   }
 
@@ -16,7 +30,7 @@ function PicSanguosha({number}){
     }
     return(
         <section>
-            <h1>三国杀表情包自取</h1>
+            <h1>表情包自取</h1>
             {images}
         </section>
     )

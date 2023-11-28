@@ -1,0 +1,9 @@
+/* 在 Pic.module.css 中 */
+.pic {
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.jump {
+  transform: translateY(-100px) scale(2); /* 向上移动20像素并放大20% */
+}
