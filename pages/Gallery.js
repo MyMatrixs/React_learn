@@ -15,7 +15,8 @@ function PicSanguosha({number}){
       gainNode.connect(audioContext.destination);
       oscillator.type = 'sine';
       oscillator.frequency.setValueAtTime(3000, audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(50, audioContext.currentTime + 0.3);
+      oscillator.frequency.exponentialRampToValueAtTime(50, audioContext.currentTime + 0.1);
+      oscillator.frequency.exponentialRampToValueAtTime(3000, audioContext.currentTime + 0.3);
       gainNode.gain.setValueAtTime(1, audioContext.currentTime);
       gainNode.gain.exponentialRampToValueAtTime(0.1, audioContext.currentTime + 0.2);
       oscillator.start(audioContext.currentTime);
