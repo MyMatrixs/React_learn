@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Gallery from './Gallery';
 import ThreeJS from './ThreeJS'
-
+import Comments from './Commits'
 
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
         <div className={styles.grid}>
           <Gallery></Gallery>
           <ThreeJS></ThreeJS>
+          <Comments></Comments>
         </div>
       </main>
 

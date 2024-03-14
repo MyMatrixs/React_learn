@@ -24,7 +24,7 @@ export default function ThreeJS(){
 
 
       const textureLoader = new THREE.TextureLoader();
-      const imgurl = `${apiUrl}/image/sanguosha/02.jpg`;
+      const imgurl = `${apiUrl}/image/sanguosha/01.jpg`;
       const material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load(imgurl) });
       const cube = new THREE.Mesh(geometry, material);
       scene.add(cube);
@@ -66,7 +66,7 @@ export default function ThreeJS(){
     }, []);
     return(
         <section>
-            <div ref={canvasRef} />;
+            <div ref={canvasRef} />
         </section>
 
     )

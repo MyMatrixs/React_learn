@@ -1,0 +1,29 @@
+.main-page {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .comment-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .comment {
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .author {
+    font-weight: bold;
+    float: left;
+  }
+  
+  .date {
+    color: #666;
+    font-size: 12px;
+    float: left;
+  }
+  
+  .content {
+    margin-top: 5px;
+  }
