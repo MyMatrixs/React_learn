@@ -27,3 +27,39 @@
   .content {
     margin-top: 5px;
   }
+
+
+  .tabs {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .activediv {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #f0f0f0;
+  }
+  
+  .inactivediv {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #fff;
+  }
+  
+  .tab-content {
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 10px;
+  }
+  
+  .activecontent{
+    display: none;
+  }
+  
+  .inactivecontent{
+    display: block;
+  }

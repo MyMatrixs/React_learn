@@ -17,10 +17,11 @@ function Comment({ author, date, content }) {
 // 评论区组件，呈现多个评论
 class CommentSection extends React.Component {
   render() {
-    const { comments } = this.props;
+    const {date, comments } = this.props;
 
     return (
-      <div className="comment-section">
+      <div className={styles.commentSection}>
+        <h2>{date}</h2>
         {comments.map((comment, index) => (
           <Comment
             key={index}
