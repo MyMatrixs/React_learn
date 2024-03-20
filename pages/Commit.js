@@ -18,18 +18,20 @@ function Comment({ author, date, content }) {
 class CommentSection extends React.Component {
   render() {
     const {date, comments } = this.props;
-
     return (
       <div className={styles.commentSection}>
         <h2>{date}</h2>
-        {comments.map((comment, index) => (
+        
+        {
+        Array.isArray(comments)?
+        (comments.map((comment, index) => (
           <Comment
             key={index}
             author={comment.author}
             date={comment.date}
             content={comment.content}
           />
-        ))}
+        ))):null}
       </div>
     );
   }
