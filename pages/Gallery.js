@@ -2,7 +2,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 import React, { useState } from 'react';
 import styles from '../styles/Mystyle.module.css'; // 引入CSS样式文件
 
-function PicSanguosha({number}){
+function PicSanguosha({update,number}){
     const imgurl = `${apiUrl}/image/sanguosha/${number.toString().padStart(2,'0')}.jpg`;
     const [isJumping, setIsJumping] = useState(false);
     const playBeepSound = () => {
@@ -23,6 +23,7 @@ function PicSanguosha({number}){
       oscillator.stop(audioContext.currentTime + 0.3);
     };
     const handleClick = () => {
+      update(imgurl)
       setIsJumping(true);
       playBeepSound(); // 播放声音
       // 设置定时器以在动画完成后重置状态
@@ -40,10 +41,10 @@ function PicSanguosha({number}){
     )
   }
 
-  export default function Gallery(){
+  export default function Gallery({setimgurl}){
     const images = [];
     for(let i=1;i<=49;i++){
-      images.push(<PicSanguosha key = {i} number={i}/>)
+      images.push(<PicSanguosha update = {setimgurl} key = {i} number={i}/>)
     }
     return(
         <section>

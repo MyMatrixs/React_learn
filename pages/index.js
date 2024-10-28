@@ -3,9 +3,15 @@ import styles from '../styles/Home.module.css';
 import Gallery from './Gallery';
 import ThreeJS from './ThreeJS'
 import Comments from './Commits'
-
+import {useState} from 'react';
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
+
+
+  const [imgurl,setimgurl] = useState(`${apiUrl}/image/sanguosha/03.jpg`);
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,9 +21,9 @@ export default function Home() {
 
       <main>
         <div className={styles.grid}>
-          <Gallery></Gallery>
-          <ThreeJS></ThreeJS>
-          <Comments></Comments>
+          <Gallery setimgurl = {setimgurl}></Gallery>
+          <ThreeJS imgurl = {imgurl}></ThreeJS>
+          {/* <Comments></Comments> */}
         </div>
       </main>
 

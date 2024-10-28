@@ -1,11 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef ,useState} from 'react';
 import * as THREE from 'three'
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 
-export default function ThreeJS(){
+
+export default function ThreeJS({imgurl}){
     const canvasRef = useRef(null);
 
+    const cubeRef = useRef(null);
+    // const cube =  useRef(null);
     useEffect(() => {
       // 创建场景
       const scene = new THREE.Scene();
@@ -24,9 +26,10 @@ export default function ThreeJS(){
 
 
       const textureLoader = new THREE.TextureLoader();
-      const imgurl = `${apiUrl}/image/sanguosha/01.jpg`;
+
       const material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load(imgurl) });
       const cube = new THREE.Mesh(geometry, material);
+      cubeRef.current = cube
       scene.add(cube);
   
       // 添加光源
@@ -64,9 +67,18 @@ export default function ThreeJS(){
         // 在组件卸载时执行一些清理操作
       };
     }, []);
+    useEffect(() => {
+      if (cubeRef.current) {
+        // 更新纹理
+        const newTexture = new THREE.TextureLoader().load(imgurl);
+        cubeRef.current.material.map = newTexture;
+        cubeRef.current.material.needsUpdate = true;
+      }
+    }, [imgurl]); // 监听 imgurl 的变化
     return(
         <section>
             <div ref={canvasRef} />
+            {/* <p>{imgurl}</p> */}
         </section>
 
     )
