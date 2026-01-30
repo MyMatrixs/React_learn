@@ -4,7 +4,7 @@ echo "--- 开始 Nginx 静态部署 ---"
 cd /root/react-web-site
 
 # 1. 拉取代码
-git pull origin master
+git pull gitee main
 
 # 2. 安装依赖并导出
 npm install
