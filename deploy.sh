@@ -1,15 +1,17 @@
 #!/bin/bash
 
-# 1. 进入项目目录
+echo "--- 开始 Nginx 静态部署 ---"
 cd /root/react-web-site
 
-# 2. 拉取最新代码 (确保服务器已经配置了 Gitee 的 SSH Key 免密)
-git pull gitee main
+# 1. 拉取代码
+git pull origin master
 
-# 3. 安装依赖并构建
+# 2. 安装依赖并导出
 npm install
-npm run build
+npm run build # 确保 next.config.js 中有 output: 'export'
 
-# 4. 使用 PM2 启动 Next.js
-# 注意：Next.js 生产模式通常运行 'npm start'
-pm2 restart react-site || pm2 start npm --name "react-site" -- start
+# 3. 这里的构建结果在 out 目录，Nginx 会自动读取，无需重启服务
+# 如果你修改了 Nginx 配置才需要 reload
+# sudo systemctl reload nginx
+
+echo "--- 部署完成 $(date) ---"
