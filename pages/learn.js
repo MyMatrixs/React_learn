@@ -1,35 +1,29 @@
-import React, {useState, useMemo} from "react";
-import { createPortal } from 'react-dom';
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export default function MyLearn(props) {
-    const [count, setCount] = useState(0);
-    return(
-        <div>
-            <p>Learn React</p>
-            <p>Count: {count}</p>
-            <button onClick={(event) => {
-                console.log(event);
-                event.preventDefault();
-                setCount(count + 1);
-            }}>Increment</button>
-            <button onClick={() => {
-                setCount(count - 1);
-            }}>Decrement</button>
-            {props.children}
-            {createPortal(
-                <div>这是一个传送门的内容</div>,
-                document.body
-            )}
+  const [count, setCount] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
-            {useMemo(() => {
-                console.log('Count changed:', count);
-            }, [count])}
-        </div>
-    )
-}
+  useEffect(() => {
+    setMounted(true); // 只在浏览器执行
+  }, []);
 
-MyLearn.Ch = function MyLearnCh(props) {
-    return (
-        <div>{props.children}</div>
-    )
+  return (
+    <div>
+      <p>Learn React</p>
+      <p>Count: {count}</p>
+
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+
+      {props.children}
+
+      {mounted &&
+        createPortal(
+          <div>这是一个传送门的内容</div>,
+          document.body
+        )}
+    </div>
+  );
 }
