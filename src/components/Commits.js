@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CommentSection from './Commit'
-import styles from '../styles/Commits.module.css'; // 引入CSS样式文件
+import styles from '../../styles/Commits.module.css'; // 引入CSS样式文件
 
 class Comments extends React.Component {
     constructor(props) {

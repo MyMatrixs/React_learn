@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Gallery from './Gallery';
-import ThreeJS from './ThreeJS'
-import Comments from './Commits'
+import Gallery from '../src/components/Gallery';
+import ThreeJS from '../src/components/ThreeJS'
+import Comments from '../src/components/Commits'
 import {useState} from 'react';
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 

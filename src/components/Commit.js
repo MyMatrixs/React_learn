@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Commits.module.css'; // 引入CSS样式文件
+import styles from '../../styles/Commits.module.css'; // 引入CSS样式文件
 
 // 单个评论组件
 function Comment({ author, date, content }) {

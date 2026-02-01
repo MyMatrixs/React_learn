@@ -1,6 +1,6 @@
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 import React, { useState } from 'react';
-import styles from '../styles/Mystyle.module.css'; // 引入CSS样式文件
+import styles from '../../styles/Mystyle.module.css'; // 引入CSS样式文件
 
 function PicSanguosha({update,number}){
     const imgurl = `${apiUrl}/image/sanguosha/${number.toString().padStart(2,'0')}.jpg`;
