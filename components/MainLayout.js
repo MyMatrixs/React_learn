@@ -34,6 +34,10 @@ export default function MainLayout({ children }) {
       key: '/three',
       label: '🎲 Three.js',
     },
+    {
+      key: '/weather',
+      label: '🌤️ 天气',
+    },
   ];
 
   const handleMenuClick = (e) => {
